@@ -30,6 +30,9 @@
         );
     in
     {
+      # Generate devShell for each system
+      devShells = forEachSupportedSystem ({ pkgs, ... }: import ./nix/devshell.nix { inherit pkgs; });
+
       # Set formatter for Nix
       formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt-tree);
 
