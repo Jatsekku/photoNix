@@ -2,6 +2,7 @@
 let
   pythonEnv = pkgs.python3.withPackages (ps: [
     pkgs.tidy3d
+    pkgs.gplugins
     ps.gdstk
     ps.gdsfactory
     ps.klayout
