@@ -28,8 +28,14 @@
         );
     in
     {
-
       # Set formatter for Nix
       formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt-tree);
+
+      # Provide packages
+      packages = forEachSupportedSystem (
+        { pkgs, system }: rec {
+          pyroots = pkgs.python3Packages.callPackage ./nix/pkgs/pyroots.nix { };
+        }
+      );
     };
 }
