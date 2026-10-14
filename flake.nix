@@ -22,6 +22,8 @@
             # Nixpkgs configured per system
             pkgs = import inputs.nixpkgs {
               inherit system;
+              # Apply overlays defined by flake itself
+              overlays = [ self.overlays.default ];
             };
             inherit system;
           }
@@ -30,6 +32,14 @@
     {
       # Set formatter for Nix
       formatter = forEachSupportedSystem ({ pkgs, ... }: pkgs.nixfmt-tree);
+
+      # Inject packages via overlays
+      overlays.default = final: prev: {
+        inherit (self.packages.${final.system})
+          pyroots
+          tidy3d
+          ;
+      };
 
       # Provide packages
       packages = forEachSupportedSystem (
