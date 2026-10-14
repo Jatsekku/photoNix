@@ -3,6 +3,7 @@
   buildPythonPackage,
   fetchPypi,
   flit-core,
+
   numpy,
   scipy,
 }:

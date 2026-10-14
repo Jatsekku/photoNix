@@ -39,6 +39,7 @@
       # Inject packages via overlays
       overlays.default = final: prev: {
         inherit (self.packages.${final.system})
+          femwell
           scikit-fem
           gplugins
           pyroots
@@ -49,8 +50,10 @@
       # Provide packages
       packages = forEachSupportedSystem (
         { pkgs, system }: rec {
+          pygmsh = pkgs.python3Packages.callPackage ./nix/pkgs/pygmsh.nix { };
+          femwell = pkgs.python3Packages.callPackage ./nix/pkgs/femwell.nix { inherit pygmsh; };
           scikit-fem = pkgs.python3Packages.callPackage ./nix/pkgs/scikit-fem.nix { };
-          gplugins = pkgs.python3Packages.callPackage ./nix/pkgs/gplugins.nix { };
+          gplugins = pkgs.python3Packages.callPackage ./nix/pkgs/gplugins.nix { inherit femwell; };
           pyroots = pkgs.python3Packages.callPackage ./nix/pkgs/pyroots.nix { };
           tidy3d = pkgs.python3Packages.callPackage ./nix/pkgs/tidy3d.nix { inherit pyroots; };
         }

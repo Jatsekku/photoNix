@@ -12,6 +12,8 @@
   scipy,
   tqdm,
   xarray,
+
+  femwell,
 }:
 
 buildPythonPackage rec {
@@ -36,6 +38,8 @@ buildPythonPackage rec {
     scipy
     tqdm
     xarray
+
+    femwell
   ];
 
   pythonImportsCheck = [ "gplugins" ];
