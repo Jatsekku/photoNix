@@ -35,6 +35,7 @@
       packages = forEachSupportedSystem (
         { pkgs, system }: rec {
           pyroots = pkgs.python3Packages.callPackage ./nix/pkgs/pyroots.nix { };
+          tidy3d = pkgs.python3Packages.callPackage ./nix/pkgs/tidy3d.nix { inherit pyroots; };
         }
       );
     };
