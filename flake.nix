@@ -48,6 +48,7 @@
       # Provide packages
       packages = forEachSupportedSystem (
         { pkgs, system }: rec {
+          pygmsh = pkgs.python3Packages.callPackage ./nix/pkgs/pygmsh.nix { };
           scikit-fem = pkgs.python3Packages.callPackage ./nix/pkgs/scikit-fem.nix { };
           pyroots = pkgs.python3Packages.callPackage ./nix/pkgs/pyroots.nix { };
           tidy3d = pkgs.python3Packages.callPackage ./nix/pkgs/tidy3d.nix { inherit pyroots; };
