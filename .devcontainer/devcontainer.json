@@ -1,0 +1,15 @@
+{
+  "name": "photonix",
+  "dockerComposeFile": "../docker/docker-compose.yaml",
+  "service": "photonix",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ethml.gds-lens",
+        "ms-toolsai.jupyter",
+        "ms-python.python"
+      ]
+    }
+  }
+}
