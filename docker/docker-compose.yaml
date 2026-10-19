@@ -1,0 +1,33 @@
+services:
+  photonix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      additional_contexts:
+        - secrets=${HOST_SECRETS_DIR}
+    image: photonix:latest
+
+    #user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /workspace
+    command: ["/bin/sh", "-c", "while sleep 1000; do :; done"]
+
+    volumes:
+      - "${HOST_WORKSPACE_DIR:-../workspace}:/workspace"
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XAUTHORITY:-/dev/null}:/tmp/.Xauthority:ro
+      - ${XDG_RUNTIME_DIR:-/tmp}/${WAYLAND_DISPLAY:-wayland-0}:/tmp/${WAYLAND_DISPLAY:-wayland-0}
+
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=/tmp/.Xauthority
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
+      - XDG_RUNTIME_DIR=/tmp
+
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+    group_add:
+      - video
+
+    ports:
+      - "8888:8888"
