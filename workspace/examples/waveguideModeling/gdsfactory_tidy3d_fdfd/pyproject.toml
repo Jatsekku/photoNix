@@ -1,0 +1,11 @@
+[project]
+name = "gdsfactory_tidy3d"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "gdsfactory>=9.51.0",
+    "gplugins[tidy3d]>=2.1.5",
+    "tidy3d<2.12",
+    "matplotlib",
+    "numpy",
+]
