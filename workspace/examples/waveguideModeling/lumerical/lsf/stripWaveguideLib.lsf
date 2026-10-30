@@ -1,0 +1,64 @@
+function stripWaveguide_draw(wg) {
+    # Bring SI prefixes to the scope
+    siConst;
+
+    addstructuregroup;
+    set("name", wg.name);
+
+    # Group center 
+    if (!isfield(wg, "x")) { wg.x = 0; }
+    if (!isfield(wg, "y")) { wg.y = 0; }
+    if (!isfield(wg, "z")) { wg.z = 0; }    
+    set("x", wg.x);
+    set("y", wg.y);
+    set("z", wg.z);
+
+    ################################# Core ####################################
+    addrect;
+    set("name", "core");
+
+    # Width
+    if (!isfield(wg, "core_width")) { wg.core_width = 500*nm; } 
+    set("x", 0);
+    set("x span", wg.core_width);
+
+    # Length
+    if (!isfield(wg, "length")) { wg.length = 3*um; } 
+    set("y min", 0);
+    set("y max", wg.length);
+
+    # Thickness
+    if (!isfield(wg, "core_thickness")) { wg.core_thickness = 220*nm; } 
+    set("z min", 0);
+    set("z max", wg.core_thickness);
+
+    if (!isfield(wg, "material")) { wg.core_material = "Si (Silicon) - Palik"; } 
+    set("material", wg.core_material);
+
+    addtogroup(wg.name);
+
+    ################################# Clad ####################################
+    addrect;
+    set("name", "clad");
+
+    # Width
+    if (!isfield(wg, "clad_width")) { wg.clad_width = wg.core_width * 8; }
+    set("x", 0);
+    set("x span", wg.clad_width);
+
+    # Length
+    set("y min", 0);
+    set("y max", wg.length);
+
+    # Thickness
+    if (!isfield(wg, "clad_thickness")) { wg.clad_thickness = wg.core_thickness * 8; }
+    set("z", 0);
+    set("z span", wg.clad_thickness);
+
+    if (!isfield(wg, "material")) { wg.clad_material = "SiO2 (Glass) - Palik"; } 
+    set("material", wg.clad_material);
+
+    addtogroup(wg.name);
+
+    groupscope("::model");
+}

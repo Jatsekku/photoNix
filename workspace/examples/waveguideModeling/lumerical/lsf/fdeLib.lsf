@@ -1,0 +1,33 @@
+function fde_add(fde) {
+    # Bring SI prefixes to the scope
+    siConst;
+
+    addfde;
+
+    # Solver type
+    if (!isfield(fde, "type")) { fde.type = "2D Y normal"; }
+    set("solver type", fde.type);
+
+    # Simulation region center
+    if (!isfield(fde, "x")) { fde.x = 0; }
+    set("x", fde.x);
+    if (!isfield(fde, "y")) { fde.y = 0; }
+    set("y", fde.y);
+    if (!isfield(fde, "z")) { fde.z = 0; }    
+    set("z", fde.z);
+
+    # Simulation region span
+    if (!isfield(fde, "x_span")) { fde.x_span = 2*um; }
+    if (!isfield(fde, "y_span")) { fde.y_span = 2*um; }
+    if (!isfield(fde, "z_span")) { fde.z_span = 2*um; }
+    
+    # Intentionally ignore setting span error
+    try { set("x span", fde.x_span); } catch (ignoreErr);
+    try { set("y span", fde.y_span); } catch (ignoreErr);
+    try { set("z span", fde.z_span); } catch (ignoreErr);
+
+    # Wavelength
+    if (!isfield(fde, "wavelength")) { fde.wavelength = 1.55*um; }
+    set("wavelength", fde.wavelength);
+}
+

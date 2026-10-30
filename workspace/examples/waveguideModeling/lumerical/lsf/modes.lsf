@@ -1,0 +1,48 @@
+# Load external script with SI prefixes
+siConst;
+
+############################################ Geometry #############################################
+
+# Define waveguide geometry
+wg = {
+    "name": "my_waveguide",
+
+    "core_width": 500*nm,
+    "core_thickness": 220*nm,
+    "core_material": "Si (Silicon) - Palik",
+
+    "clad_width": 4*um,
+    "clad_thickness": 4*um,
+    "clad_material": "SiO2 (Glass) - Palik",
+
+    # Not really relevant here but simplifies anchoring FDE
+    "length": 2*um
+};
+
+# Load external script with function to draw strip waveguide
+stripWaveguideLib;
+
+# Create waveguide
+stripWaveguide_draw(wg);
+
+# Define simulation region
+fde = {
+    "wavelength": 1.55*um,
+
+    "x": 0,
+    "y": wg.length/2,
+    "z": 0 + wg.core_thickness/2,
+
+    "x_span": wg.core_width * 5,
+    "z_span": wg.core_thickness * 8
+};
+
+# Load external script with function to set FDE
+fdeLib;
+fde_add(fde);
+
+
+
+
+
+
