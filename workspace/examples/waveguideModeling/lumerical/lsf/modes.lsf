@@ -1,0 +1,174 @@
+closeall();
+clear();
+newproject();
+
+# Load external script with SI prefixes
+siConst;
+
+########################################### Materials #############################################
+mat = copymaterial("Si (Silicon) - Palik");
+setmaterial(mat, "tolerance", 0.001);
+setmaterial(mat, "name", "Si (Silicon) - Custom");
+
+mat = copymaterial("Si3N4 (Silicon Nitride) - Luke");
+setmaterial(mat, "tolerance", 0.001);
+setmaterial(mat, "name", "Si3N4 (Silicon Nitride) - Custom");
+
+mat = copymaterial("SiO2 (Glass) - Palik");
+setmaterial(mat, "tolerance", 0.001);
+setmaterial(mat, "name", "SiO2 (Glass) - Custom");
+
+core_material = "Si (Silicon) - Custom"; 
+clad_material = "SiO2 (Glass) - Custom";
+
+############################################ Geometry #############################################
+
+# Define waveguide geometry
+wg = {
+    "name": "my_waveguide",
+
+    "core_width": 500*nm,
+    "core_thickness": 220*nm,
+    "core_material": core_material,
+
+    "clad_width": 20*um,
+    "clad_thickness": 20*um,
+    "clad_material": clad_material,
+
+    # Not really relevant here but simplifies anchoring FDE
+    "length": 2*um
+};
+
+# Load external script with function to draw strip waveguide
+stripWaveguideLib;
+
+# Create waveguide
+stripWaveguide_draw(wg);
+
+########################################### Simulation ############################################
+
+# Define simulation region
+fde = {
+    "wavelength_center": 1.5*um,
+    "wavelength_span": 0.7*um,
+    "trial_modes_count": 10,
+
+    "x": 0,
+    "y": wg.length/2,
+    "z": 0 + wg.core_thickness/2,
+
+    "x_span": 10*um,
+    "z_span": 10*um
+};
+
+# Load external script with function to set FDE
+fdeLib;
+fde_add(fde);
+
+# Si
+dispersion_si_plt = fde_plotMaterialDispersion(fde, "Si (Silicon) - Custom");
+selectfigure(dispersion_si_plt);
+exportfigure("results/plots/dispersionSi.jpg", 1200, 800);
+
+# Si3N4
+dispersion_si3n4_plt = fde_plotMaterialDispersion(fde, "Si3N4 (Silicon Nitride) - Custom");
+selectfigure(dispersion_si3n4_plt);
+exportfigure("results/plots/dispersionSi3n4.jpg", 1200, 800);
+
+# SiO2
+dispersion_si02_plt = fde_plotMaterialDispersion(fde, "SiO2 (Glass) - Custom");
+selectfigure(dispersion_si02_plt);
+exportfigure("results/plots/dispersionSiO2.jpg", 1200, 800);
+
+# Core
+dispersion_core_plt = fde_plotMaterialDispersion(fde, wg.core_material);
+selectfigure(dispersion_core_plt);
+exportfigure("results/plots/core_refractiveIndex.jpg", 1200, 800);
+
+# Clad
+dispersion_clad_plt = fde_plotMaterialDispersion(fde, wg.clad_material);
+selectfigure(dispersion_clad_plt);
+exportfigure("results/plots/clad_refractiveIndex.jpg", 1200, 800);
+
+mesh();
+structure = getresult("FDE::data::material", "index");
+fig_num = image(structure.x * 1e6, structure.z * 1e6, structure.index_x, "x (um)", "z (um)", "Refractive Index Map ");
+selectfigure(fig_num);
+exportfigure("results/plots/structure_refractiveindexxmap.jpg", 1200, 800);
+
+guided_modes = fde_findGuidedModes();
+
+for (i = 1: length(guided_modes)) {
+    mode = guided_modes{i};
+
+     # Plot mode profile
+     mode_profile_plt = fde_plotModeEIntensity(mode, "logscale");
+     selectfigure(mode_profile_plt);
+     exportfigure("results/plots/guidedMode_Eprofile" + num2str(i), 1200, 800);
+}
+
+# Wavelength sweep
+setanalysis("track selected mode", 1);
+setanalysis("number of test modes", 1);
+setanalysis("number of points", 10);
+setanalysis("detailed dispersion calculation", 0);
+setanalysis('stop wavelength',1.6*um);
+setanalysis('store mode profiles while tracking', 1);
+frequencysweep;
+
+neff_sweep = getresult("FDE::data::frequencysweep", "neff sweep");
+neff_vector = abs(neff_sweep.getattribute("neff sweep"));
+wavelength_vector = neff_sweep.getparameter("lambda");
+fig_num = plot(wavelength_vector * 1e9, neff_vector, 
+               "Wavelength (nm)", "Effective Index");
+
+# Compact model fitting
+polynomial_order = 2;
+wavelength_center = fde.wavelength_center;
+
+x_fit_um = (wavelength_vector - wavelength_center) * 1e6;
+wavelength_center_um = wavelength_center * 1e6;
+y_fit = real(neff_vector);
+
+vandermonde_matrix = matrix(length(x_fit_um), polynomial_order+1);
+for(i = 0 : polynomial_order) {
+    vandermonde_matrix(1:length(x_fit_um),i+1) = x_fit_um^i; 
+}
+
+Xt_X = mult(transpose(vandermonde_matrix), vandermonde_matrix);
+coeff = mult(mult(inv(Xt_X), transpose(vandermonde_matrix)), y_fit);
+
+neff_fit = coeff(1);
+for(i = 1 : polynomial_order) {
+    neff_fit = neff_fit + coeff(i+1) * (x_fit_um^i);
+}
+
+eq_str = "n_eff(lambda[um]) =";
+for(i = 0 : polynomial_order) {
+    coeff_val = coeff(i+1);
+
+    if (coeff_val < 0) { 
+        coeff_sign = " -";
+        coeff_str = num2str(abs(coeff_val));
+    } else {
+        coeff_sign = " ";
+        coeff_str = num2str(abs(coeff_val));
+    }
+
+    if (i == 0) {
+        eq_str = eq_str + coeff_sign + coeff_str;
+    } else if (i == 1) {
+        eq_str = eq_str + coeff_sign + coeff_str
+                 + "*(lambda-" + num2str(wavelength_center_um) +")";
+    } else {
+        eq_str = eq_str + coeff_sign + coeff_str
+                 + "*(lambda-" + num2str(wavelength_center_um) +")^" + num2str(i);
+    }
+}
+?eq_str;
+
+fig_fit = plot(wavelength_vector * 1e9, neff_vector, neff_fit, 
+               "Wavelength (nm)", "Effective Index (neff)", 
+               "Neff Dispersion Polynomial Fit");
+
+
