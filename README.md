@@ -57,3 +57,30 @@ user@host:~/photoNix/ > ls secrets
 ansys_token.json  lumerical.deb
 ```
 
+## Examples
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Tool</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Strip waveguide modes</strong></td>
+      <td><a href="/workspace/examples/waveguideModeling/lumerical/gui/README.md">Lumerical MODE GUI</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Strip waveguide modes</strong></td>
+      <td><a href="/workspace/examples/waveguideModeling/lumerical/lsf/README.md">Lumerical MODE LSF</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Strip waveguide modes</strong></td>
+      <td><a href="/workspace/examples/waveguideModeling/lumerical/lsf/README.md">GDSFactory & Tidy3D</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
