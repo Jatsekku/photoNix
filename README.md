@@ -57,3 +57,50 @@ user@host:~/photoNix/ > ls secrets
 ansys_token.json  lumerical.deb
 ```
 
+## Examples
+<table>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Tools</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/jupyter/stripWaveguide_widthSweep.ipynb"> Width sweep of strip waveguide </a></strong></td>
+      <td> Jupyter, Lumerical MODE (lumapi) </td>
+      <td> Effective refractive index (n<sub>eff</sub>) analysis across varying waveguide core widths. </td>
+    </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/jupyter/stripWaveguide_90Bend.ipynb"> Optimization of 90° bend </a></strong></td>
+      <td> Jupyter, Lumerical FDTD (lumapi), GDSfactory </td>
+      <td> Waveguide 90° bend insertion loss minimization using Bézier curves and CMA-ES </td>
+    </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/jupyter/stripWaveguide_sBend.ipynb"> Optimization of S-bend </a></strong></td>
+      <td> Jupyter, Lumerical FDTD (lumapi), GDSfactory </td>
+      <td> Waveguide S-bend insertion loss minimization using Bézier curves and CMA-ES </td>
+    </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/jupyter/stripWaveguide_directionalCoupler_fdtd.ipynb"> Gap width sweep of directional coupler </a></strong></td>
+      <td> Jupyter, Lumerical MODE (lumapi) </td>
+      <td> Analyzing symmetric and antisymmetric supermodes effective indices (n<sub>eff</sub>) and gap width influence on crossover length</td>
+    </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/jupyter/stripWaveguide_directionalCoupler_fdtd.ipynb"> Light propagation through directional coupler </a></strong></td>
+      <td> Jupyter, Lumerical FDTD (lumapi) </td>
+      <td> FDTD analysis of directional coupler, S-parameters extraction. </td>
+    </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/misc/logicGate_gradientDescent.ipynb"> Optimization of MZI-based circuit to perform logic operations </a></strong></td>
+      <td> Jupyter </td>
+      <td> Gradient-descent optimization of a triangular 3-MZI mesh for optical logic operations via the transfer-matrix method. </td>
+    </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/jupyter/logicGate_interconnect.ipynb"> Simulation of MZI-based circuit to perform logic operations </a></strong></td>
+      <td> Jupyter, Lumerical INTERCONNECT (lumapi) </td>
+      <td> Simulation of triangular 3-MZI mesh for optical logic operations in Lumerical INTERCONNECT. </td>
+    </tr>
+  </tbody>
+</table>
