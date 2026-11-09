@@ -13,6 +13,7 @@ services:
 
     volumes:
       - "${HOST_WORKSPACE_DIR:-../workspace}:/workspace"
+      - "${HOST_LIBRARIES_DIR}:/photoNix/libraries"
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY:-/dev/null}:/tmp/.Xauthority:ro
       - ${XDG_RUNTIME_DIR:-/tmp}/${WAYLAND_DISPLAY:-wayland-0}:/tmp/${WAYLAND_DISPLAY:-wayland-0}

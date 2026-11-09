@@ -12,7 +12,12 @@ echo "Workspace directory: $HOST_WORKSPACE_DIR"
 # Secrets 
 HOST_SECRETS_DIR="${HOST_SECRETS_DIR:-${PHOTONIX_ROOT_DIR}/secrets}"
 export HOST_SECRETS_DIR
-echo "Secrets directory: $HOST_SECRETS_DIR" 
+echo "Secrets directory: $HOST_SECRETS_DIR"
+
+# Libraries
+HOST_LIBRARIES_DIR="${PHOTONIX_ROOT_DIR}/libraries"
+export HOST_LIBRARIES_DIR
+echo "Libraries directory: $HOST_LIBRARIES_DIR"
 
 docker_launcher_linux() {
     docker compose -f "$DOCKER_COMPOSE_FILE" up -d --build
