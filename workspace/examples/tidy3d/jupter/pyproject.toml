@@ -1,0 +1,13 @@
+[project]
+name = "example"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "tidy3d>=2.11.0",
+    "photonix",
+]
+
+[tool.uv.sources]
+photonix = { path = "/photoNix/libraries/photonix-py"}
