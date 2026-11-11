@@ -6,6 +6,9 @@ readonly DOCKER_COMPOSE_FILE="${PHOTONIX_ROOT_DIR}/docker/docker-compose.yaml"
 
 # Workspace
 HOST_WORKSPACE_DIR="${HOST_WORKSPACE_DIR:-$(pwd)}"
+if [ "${HOST_WORKSPACE_DIR}" = "${PHOTONIX_ROOT_DIR}" ]; then
+    HOST_WORKSPACE_DIR="${PHOTONIX_ROOT_DIR}/workspace"
+fi
 export HOST_WORKSPACE_DIR
 echo "Workspace directory: $HOST_WORKSPACE_DIR" 
 
