@@ -1,0 +1,186 @@
+function fde_add(fde) {
+    # Bring SI prefixes to the scope
+    siConst;
+
+    addfde;
+
+    # Solver type
+    if (!isfield(fde, "type")) { fde.type = "2D Y normal"; }
+    set("solver type", fde.type);
+
+    # Simulation region center
+    # X
+    if (!isfield(fde, "x")) { fde.x = 0; }
+    set("x", fde.x);
+
+    # Y
+    if (!isfield(fde, "y")) { fde.y = 0; }
+    set("y", fde.y);
+
+    # Z
+    if (!isfield(fde, "z")) { fde.z = 0; }    
+    set("z", fde.z);
+
+    # Simulation region span
+    # X
+    if (!isfield(fde, "x_span")) { fde.x_span = 2*um; }
+    try { set("x span", fde.x_span); } catch (ignoreErr);
+
+    # Y
+    if (!isfield(fde, "y_span")) { fde.y_span = 2*um; }
+    try { set("y span", fde.y_span); } catch (ignoreErr);
+
+    # Z
+    if (!isfield(fde, "z_span")) { fde.z_span = 2*um; }
+    try { set("z span", fde.z_span); } catch (ignoreErr);
+
+    # Mesh grid
+    # X
+    if (!isfield(fde, "x_mesh")) { fde.x_mesh = 100; }
+    try {
+        set("define x mesh by", "number of mesh cells");
+        set("mesh cells x", fde.x_mesh); 
+    } catch (ignoreErr);
+
+    # Y
+    if (!isfield(fde, "y_mesh")) { fde.y_mesh = 100; }
+    try {
+        set("define y mesh by", "number of mesh cells");
+        set("mesh cells y", fde.y_mesh); 
+    } catch (ignoreErr);
+
+    # Z
+    if (!isfield(fde, "z_mesh")) { fde.z_mesh = 100; }
+    try {
+        set("define z mesh by", "number of mesh cells");
+        set("mesh cells z", fde.z_mesh); 
+    } catch (ignoreErr);
+
+    # Wavelength
+    if (!isfield(fde, "wavelength_center")) { fde.wavelength_center = 1.55*um; }
+    set("wavelength", fde.wavelength_center);
+
+    # Trial modes
+    if (!isfield(fde, "trial_modes_count")) { fde.trial_modes_count = 10; }
+    set("number of trial modes", fde.trial_modes_count);
+
+    # Fitting
+    if (isfield(fde, "wavelength_span")) {
+        set("fit materials with multi-coefficient model", true);
+        set("fit sampled materials", true);
+        set("wavelength span", fde.wavelength_span);
+    }
+}
+
+function fde_plotMaterialDispersion(fde, material) {
+    # X axis - wavelength/frequency
+    wavelength_min = fde.wavelength_center - (fde.wavelength_span/2);
+    wavelength_max = fde.wavelength_center + (fde.wavelength_span/2);
+    wavelength_vector1 = linspace(wavelength_min, wavelength_max, 100);
+
+    frequency_min = c / wavelength_min;
+    frequency_max = c /wavelength_max;
+    frequency_vector1 = c / wavelength_vector1;
+
+    # Y axis - refractive index
+    samples_data = getmaterial(material, "sampled data");
+    frequency_vector2 = pinch(samples_data,2,1);
+    wavelength_vector2 = c / frequency_vector2;
+    permitivity = pinch(samples_data,2,2);
+
+    n_samples = sqrt(permitivity);
+    n_interpolated = getindex(material, frequency_vector1);
+    n_mode = getmodeindex(material,
+                          frequency_vector1,
+                          1,
+                          1,
+                          0,
+                          frequency_min,
+                          frequency_max);
+
+    fig_num = plot(wavelength_vector1 * 1e9, real(n_interpolated), 
+                   "", "", "",
+                   "plot type=line, color=blue");
+    holdon;
+    plot(wavelength_vector1 * 1e9, real(n_mode), 
+         "", "", "",
+         "plot type=line, color=green");
+    plot(wavelength_vector2 * 1e9, real(n_samples), 
+         "", "", "",
+         "plot type=point, color=red, marker style=s");
+    holdoff;
+
+    legend("Interpolated", "FDE model", "Sample data");
+
+    setplot("x min", wavelength_min * 1e9);
+    setplot("x max", wavelength_max * 1e9);
+
+    setplot("y min", min(n_mode) );
+    setplot("y max", max(n_mode) );
+
+    setplot("x label", "Wavelength (nm)");
+    setplot("y label", "n");
+    setplot("title", material);
+
+    return fig_num;
+}
+
+function fde_findGuidedModes() {
+    n_threshold = 1.44;
+
+    # 0-element list
+    guided_modes = cell(1);
+    guided_modes.clear;
+
+    modes_count = findmodes();
+    for(i=1:modes_count) {
+        mode_path = "FDE::data::mode" + num2str(i);
+
+        # Get effective refractive index of mode
+        mode_neff = getresult(mode_path, "neff");
+
+        # Cut-off unguided modes
+        if(real(mode_neff) > n_threshold) {
+            mode = {
+                "path": mode_path,
+
+                "x": getresult(mode_path, "x"),
+                "y": getresult(mode_path, "y"),
+                "z": getresult(mode_path, "z"),
+
+                "E": getresult(mode_path, "E"),
+                "H": getresult(mode_path, "H"),
+                "P": getresult(mode_path, "P"),
+
+                "neff": mode_neff
+            };
+
+            guided_modes.append(mode);
+        }
+    }
+
+    return guided_modes;
+}
+
+function fde_plotModeEIntensity(mode, option) {
+    x = mode.x;
+    y = mode.y;
+    z = mode.z;
+
+    E_intensity = abs(mode.E.Ex)^2 + abs(mode.E.Ey)^2 + abs(mode.E.Ez)^2;
+
+    logscale_requested = findstring(option, "logscale") > -1;
+    if(logscale_requested) {
+        E_max = max(E_intensity);
+        E_intensity = log10((E_intensity/E_max) + 1e-12);
+    }
+
+    fig_num = image(x, z, E_intensity);
+    if(logscale_requested) {
+        setplot("colorbar max", 0);
+        setplot("colorbar min", -10);
+    }
+
+    return fig_num;
+}
+
