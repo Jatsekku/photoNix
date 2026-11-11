@@ -1,0 +1,9 @@
+# Start Jupyter Lab in background using uv 
+jupyter-start:
+    @echo "Starting Jupyter in background "
+    @uv run --with jupyter jupyter lab &
+
+# Stop the Jupyter Lab instance
+jupyter-stop:
+    @pkill -x "jupyter-lab" && echo "Jupyter stopped." || echo "No running Jupyter process found."
+
