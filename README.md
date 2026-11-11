@@ -57,6 +57,18 @@ user@host:~/photoNix/ > ls secrets
 ansys_token.json  lumerical.deb
 ```
 
+## Jupyter
+
+To start Jupyter Lab in container, invoke
+```shell
+user@host:/workspace# just jupyter-start
+```
+
+To stop Jupyter Lab:
+```shell
+user@host:/workspace# just jupyter-stop
+```
+
 ## Examples
 <table>
   <thead>
