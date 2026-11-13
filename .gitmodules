@@ -1,0 +1,3 @@
+[submodule "workspace/SiliconPhotonicsDesign"]
+	path = workspace/SiliconPhotonicsDesign
+	url = git@github.com:lukasc-ubc/SiliconPhotonicsDesign.git
