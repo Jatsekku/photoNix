@@ -1,0 +1,12 @@
+# Hardware overlaa for nVidia hosts
+
+services:
+  photonix:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
