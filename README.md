@@ -112,7 +112,7 @@ user@host:/workspace# just jupyter-stop
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr id="10.1109/JPROC.2018.2861576">
       <td> Overview </td>
       <td> SiN </td>
       <td><strong> Silicon Nitride in Silicon Photonics </strong></td>
@@ -122,7 +122,7 @@ user@host:/workspace# just jupyter-stop
       <td> ✅ </td>
       <td><a href="/secrets/papers/SiliconNitrideInSiliconPhotonics.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.3390/ma15041398">
       <td> - </td>
       <td> SiN</td>
       <td><strong> Passive Photonic Integrated Circuits Elements Fabricated on a Silicon Nitride Platform </strong></td>
@@ -132,7 +132,7 @@ user@host:/workspace# just jupyter-stop
       <td> ❌ </td>
       <td><a href="/secrets/papers/PassivePhotonicIntegratedCircuitsElementsFabricatedOnSiliconNitridePlatform.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1109/IPC65510.2025.11282252" >
       <td> Bends </td>
       <td> SiN </td>
       <td><strong> Low-loss Euler Waveguide Bends in Silicon Nitride Photonic Integrated Circuits </strong></td>
@@ -140,8 +140,9 @@ user@host:/workspace# just jupyter-stop
       <td> 09.10.2025 </td>
       <td><a href="https://ieeexplore.ieee.org/document/11282252"> ❌ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/LowLossEulerWaveguideBendsInSiliconNitridePhotonicIntegratedCircuits.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1364/OE.475398">
       <td> Bends </td>
       <td> SOI </td>
       <td><strong> Low-loss, ultracompact n-adjustable waveguide bends for photonic integrated circuits </strong></td>
@@ -149,17 +150,19 @@ user@host:/workspace# just jupyter-stop
       <td> 11.01.2023 </td>
       <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-31-2-2792&seq=0"> ✅ </a></td>
       <td> ❌ </td>
+      <td><a href="/secrets/papers/LowLossUltracompactNAdjustableWaveguideBendsForPhotonicIntegratedCircuits.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1364/OE.25.009150">
       <td> Bends </td>
       <td> SOI </td>
       <td><strong> Low-loss, compact, and fabrication-tolerant Si-wire 90° waveguide bend using clothoid and normal curves for large scale photonic integrated circuits </strong></td>
-      <td>10.1364/OE.25.009150 </td>
+      <td> 10.1364/OE.25.009150 </td>
       <td> 17.04.2017 </td>
       <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-25-8-9150&seq=0"> ✅ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/LowLossCompactAndFabricationTolerantSiWire90WaveguideBendUsingClothoidAndNormalCurvesForLargeScalePhotonicIntegratedCircuits.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1109/LPT.2016.2585760">
       <td> Bends </td>
       <td> SiN </td>
       <td><strong> Adiabatically Bent Waveguides on Silicon Nitride Photonics for Compact and Dense Footprints </strong></td>
@@ -167,8 +170,29 @@ user@host:/workspace# just jupyter-stop
       <td> 28.06.2016 </td>
       <td><a href="https://ieeexplore.ieee.org/document/7501623"> ❌ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/AdiabaticallyBentWaveguidesOnSiliconNitridePhotonicsForCompactAndDenseFootprints.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1364/OE.452580">
+      <td> Bends </td>
+      <td> Si & SiN </td>
+      <td><strong> Low loss modified Bezier bend waveguide </strong></td>
+      <td> 10.1364/OE.452580 </td>
+      <td> 14.03.2022 </td>
+      <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-30-7-10293&seq=0"> ✅ </a></td>
+      <td> ❌ </td>
+      <td><a href="/secrets/papers/LowLossModifiedBezierBendWaveguide.pdf"> ✅ </a></td>
+    </tr>
+    <tr id="10.1109/JPHOT.2024.3509312">
+      <td> Bends </td>
+      <td> SiN </td>
+      <td><strong> Advanced Bends and Micro Ring Resonators in Silicon Nitride Photonic Waveguides for C-Band </strong></td>
+      <td> 10.1109/JPHOT.2024.3509312 </td>
+      <td> 29.11.2024 </td>
+      <td><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10771684"> ✅ </a></td>
+      <td> ✅ </td>
+      <td><a href="/secrets/papers/AdvancedBendsAndMicroRingResonatorsInSiliconNitridePhotonicWaveguidesForCBand.pdf"> ✅ </a></td>
+    </tr>
+    <tr id="10.1364/OE.504866" >
       <td> S-bends </td>
       <td> SOI </td>
       <td><strong> Design of compact and low-loss S-bends by CMA-ES </strong></td>
@@ -176,8 +200,9 @@ user@host:/workspace# just jupyter-stop
       <td> 18.12.2023 </td>
       <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-31-26-43850&seq=0"> ✅ </a></td>
       <td> ❌ </td>
+      <td><a href="/secrets/papers/DesignOfCompactAndLowLossSBendsByCMAES.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1364/AO.51.008693">
       <td> AO-LGs </td>
       <td> SOI </td>
       <td><strong> Single Mach–Zehnder interferometer based optical Boolean logic gates </strong></td>
@@ -185,8 +210,9 @@ user@host:/workspace# just jupyter-stop
       <td> 20.12.2012 </td>
       <td><a href="https://opg.optica.org/ao/abstract.cfm?uri=ao-51-36-8693"> ❌ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/SingleMachZehnderInterferometerBasedOpticalBooleanLogicGates.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1016/j.optlastec.2023.109703">
       <td> AO-LGs </td>
       <td> SOI </td>
       <td><strong> Optical logic operations using a meshed Mach-Zehnder interference array </strong></td>
@@ -195,6 +221,16 @@ user@host:/workspace# just jupyter-stop
       <td><a href="https://doi.org/10.1016/j.optlastec.2023.109703"> ❌ </a></td>
       <td> ❌ </td>
       <td><a href="/secrets/papers/OpticalLogicOperationsUsingMeshedMachZehnderInterferenceArray.pdf"> ✅ </a></td>
+    </tr>
+    <tr id="10.3390/nano15191532">
+      <td> - </td>
+      <td> SiN </td>
+      <td><strong> Experimental Characterization of a Silicon Nitride Asymmetric Loop-Terminated Mach-Zehnder Interferometer with a Refractive Index-Engineered Sensing Arm </strong></td>
+      <td> 10.3390/nano15191532 </td>
+      <td> 08.10.2025 </td>
+      <td><a href="https://www.mdpi.com/2079-4991/15/19/1532/pdf"> ✅ </a></td>
+      <td> ❌ </td>
+      <td><a href="/secrets/papers/ExperimentalCharacterizationOfSiliconNitrideAsymmetricLoopTerminatedMachZehnderInterferometerWithARefractiveIndexEngineeredSensingArm.pdf"> ✅ </a></td>
     </tr>
   </tbody>
 </table>
