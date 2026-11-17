@@ -96,3 +96,105 @@ user@host:/workspace# just jupyter-stop
     </tr>
   </tbody>
 </table>
+
+## Publications
+<table>
+  <thead>
+    <tr>
+      <th> Category </th>
+      <th> Platform </th>
+      <th> Title </th>
+      <th> DOI </th>
+      <th> Date </th>
+      <th> Open access </th>
+      <th> Scihub </th>
+      <th> Local </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> Overview </td>
+      <td> SiN </td>
+      <td><strong> Silicon Nitride in Silicon Photonics </strong></td>
+      <td> 10.1109/JPROC.2018.2861576 </td>
+      <td> 26.09.2018 </td>
+      <td><a href="https://ocaqpi.ece.ucsb.edu/sites/default/files/2021-02/Blumenthal_et_al_Silicon%20Nitride%20in%20Silicon%20Photonics.pdf"> ✅ </a></td>
+      <td> ✅ </td>
+      <td><a href="/secrets/papers/SiliconNitrideInSiliconPhotonics.pdf"> ✅ </a></td>
+    </tr>
+    <tr>
+      <td> - </td>
+      <td> SiN</td>
+      <td><strong> Passive Photonic Integrated Circuits Elements Fabricated on a Silicon Nitride Platform </strong></td>
+      <td> 10.3390/ma15041398 </td>
+      <td> 13.02.2022 </td>
+      <td><a href="https://www.mdpi.com/1996-1944/15/4/1398/pdf"> ✅ </a></td>
+      <td> ❌ </td>
+      <td><a href="/secrets/papers/PassivePhotonicIntegratedCircuitsElementsFabricatedOnSiliconNitridePlatform.pdf"> ✅ </a></td>
+    </tr>
+    <tr>
+      <td> Bends </td>
+      <td> SiN </td>
+      <td><strong> Low-loss Euler Waveguide Bends in Silicon Nitride Photonic Integrated Circuits </strong></td>
+      <td> 10.1109/IPC65510.2025.11282252 </td>
+      <td> 09.10.2025 </td>
+      <td><a href="https://ieeexplore.ieee.org/document/11282252"> ❌ </a></td>
+      <td> ✅ </td>
+    </tr>
+    <tr>
+      <td> Bends </td>
+      <td> SOI </td>
+      <td><strong> Low-loss, ultracompact n-adjustable waveguide bends for photonic integrated circuits </strong></td>
+      <td> 10.1364/OE.475398 </td>
+      <td> 11.01.2023 </td>
+      <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-31-2-2792&seq=0"> ✅ </a></td>
+      <td> ❌ </td>
+    </tr>
+    <tr>
+      <td> Bends </td>
+      <td> SOI </td>
+      <td><strong> Low-loss, compact, and fabrication-tolerant Si-wire 90° waveguide bend using clothoid and normal curves for large scale photonic integrated circuits </strong></td>
+      <td>10.1364/OE.25.009150 </td>
+      <td> 17.04.2017 </td>
+      <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-25-8-9150&seq=0"> ✅ </a></td>
+      <td> ✅ </td>
+    </tr>
+    <tr>
+      <td> Bends </td>
+      <td> SiN </td>
+      <td><strong> Adiabatically Bent Waveguides on Silicon Nitride Photonics for Compact and Dense Footprints </strong></td>
+      <td> 10.1109/LPT.2016.2585760 </td>
+      <td> 28.06.2016 </td>
+      <td><a href="https://ieeexplore.ieee.org/document/7501623"> ❌ </a></td>
+      <td> ✅ </td>
+    </tr>
+    <tr>
+      <td> S-bends </td>
+      <td> SOI </td>
+      <td><strong> Design of compact and low-loss S-bends by CMA-ES </strong></td>
+      <td> 10.1364/OE.504866 </td>
+      <td> 18.12.2023 </td>
+      <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-31-26-43850&seq=0"> ✅ </a></td>
+      <td> ❌ </td>
+    </tr>
+    <tr>
+      <td> AO-LGs </td>
+      <td> SOI </td>
+      <td><strong> Single Mach–Zehnder interferometer based optical Boolean logic gates </strong></td>
+      <td> 10.1364/AO.51.008693 </td>
+      <td> 20.12.2012 </td>
+      <td><a href="https://opg.optica.org/ao/abstract.cfm?uri=ao-51-36-8693"> ❌ </a></td>
+      <td> ✅ </td>
+    </tr>
+    <tr>
+      <td> AO-LGs </td>
+      <td> SOI </td>
+      <td><strong> Optical logic operations using a meshed Mach-Zehnder interference array </strong></td>
+      <td> 10.1016/j.optlastec.2023.109703 </td>
+      <td> xx.12.2023 </td>
+      <td><a href="https://doi.org/10.1016/j.optlastec.2023.109703"> ❌ </a></td>
+      <td> ❌ </td>
+      <td><a href="/secrets/papers/OpticalLogicOperationsUsingMeshedMachZehnderInterferenceArray.pdf"> ✅ </a></td>
+    </tr>
+  </tbody>
+</table>
