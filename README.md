@@ -132,7 +132,7 @@ user@host:/workspace# just jupyter-stop
       <td> ❌ </td>
       <td><a href="/secrets/papers/PassivePhotonicIntegratedCircuitsElementsFabricatedOnSiliconNitridePlatform.pdf"> ✅ </a></td>
     </tr>
-    <tr>
+    <tr id="10.1109/IPC65510.2025.11282252" >
       <td> Bends </td>
       <td> SiN </td>
       <td><strong> Low-loss Euler Waveguide Bends in Silicon Nitride Photonic Integrated Circuits </strong></td>
@@ -140,6 +140,7 @@ user@host:/workspace# just jupyter-stop
       <td> 09.10.2025 </td>
       <td><a href="https://ieeexplore.ieee.org/document/11282252"> ❌ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/LowLossEulerWaveguideBendsInSiliconNitridePhotonicIntegratedCircuits.pdf"> ✅ </a></td>
     </tr>
     <tr>
       <td> Bends </td>
@@ -149,6 +150,7 @@ user@host:/workspace# just jupyter-stop
       <td> 11.01.2023 </td>
       <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-31-2-2792&seq=0"> ✅ </a></td>
       <td> ❌ </td>
+      <td><a href="/secrets/papers/LowLossUltracompactNAdjustableWaveguideBendsForPhotonicIntegratedCircuits.pdf"> ✅ </a></td>
     </tr>
     <tr>
       <td> Bends </td>
@@ -158,6 +160,7 @@ user@host:/workspace# just jupyter-stop
       <td> 17.04.2017 </td>
       <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-25-8-9150&seq=0"> ✅ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/LowLossCompactAndFabricationTolerantSiWire90WaveguideBendUsingClothoidAndNormalCurvesForLargeScalePhotonicIntegratedCircuits.pdf"> ✅ </a></td>
     </tr>
     <tr>
       <td> Bends </td>
@@ -167,6 +170,7 @@ user@host:/workspace# just jupyter-stop
       <td> 28.06.2016 </td>
       <td><a href="https://ieeexplore.ieee.org/document/7501623"> ❌ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/AdiabaticallyBentWaveguidesOnSiliconNitridePhotonicsForCompactAndDenseFootprints.pdf"> ✅ </a></td>
     </tr>
     <tr>
       <td> S-bends </td>
@@ -176,6 +180,7 @@ user@host:/workspace# just jupyter-stop
       <td> 18.12.2023 </td>
       <td><a href="https://opg.optica.org/oe/viewmedia.cfm?uri=oe-31-26-43850&seq=0"> ✅ </a></td>
       <td> ❌ </td>
+      <td><a href="/secrets/papers/DesignOfCompactAndLowLossSBendsByCMAES.pdf"> ✅ </a></td>
     </tr>
     <tr>
       <td> AO-LGs </td>
@@ -185,6 +190,7 @@ user@host:/workspace# just jupyter-stop
       <td> 20.12.2012 </td>
       <td><a href="https://opg.optica.org/ao/abstract.cfm?uri=ao-51-36-8693"> ❌ </a></td>
       <td> ✅ </td>
+      <td><a href="/secrets/papers/SingleMachZehnderInterferometerBasedOpticalBooleanLogicGates.pdf"> ✅ </a></td>
     </tr>
     <tr>
       <td> AO-LGs </td>
@@ -195,6 +201,16 @@ user@host:/workspace# just jupyter-stop
       <td><a href="https://doi.org/10.1016/j.optlastec.2023.109703"> ❌ </a></td>
       <td> ❌ </td>
       <td><a href="/secrets/papers/OpticalLogicOperationsUsingMeshedMachZehnderInterferenceArray.pdf"> ✅ </a></td>
+    </tr>
+    <tr>
+      <td> - </td>
+      <td> SiN </td>
+      <td><strong> Experimental Characterization of a Silicon Nitride Asymmetric Loop-Terminated Mach-Zehnder Interferometer with a Refractive Index-Engineered Sensing Arm </strong></td>
+      <td> 10.3390/nano15191532 </td>
+      <td> 08.10.2025 </td>
+      <td><a href="https://www.mdpi.com/2079-4991/15/19/1532/pdf"> ✅ </a></td>
+      <td> ❌ </td>
+      <td><a href="/secrets/papers/ExperimentalCharacterizationOfSiliconNitrideAsymmetricLoopTerminatedMachZehnderInterferometerWithARefractiveIndexEngineeredSensingArm.pdf"> ✅ </a></td>
     </tr>
   </tbody>
 </table>
