@@ -119,6 +119,11 @@ user@host:/workspace# just jupyter-stop
       <td> Lumerical FDTD (GUI) </td>
       <td> FDTD analysis of directional coupler </td>
     </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/gui/logicGate_interconnect/"> Simulation of MZI-based circuit to perform logic operations </a></strong></td>
+      <td> Lumerical INTERCONNECT (GUI) </td>
+      <td> Simulation of triangular 3-MZI mesh for optical logic operations in Lumerical INTERCONNECT. </td>
+    </tr>
   </tbody>
 </table>
 
