@@ -114,6 +114,11 @@ user@host:/workspace# just jupyter-stop
       <td> Jupyter, Lumerical INTERCONNECT (lumapi) </td>
       <td> Simulation of triangular 3-MZI mesh for optical logic operations in Lumerical INTERCONNECT. </td>
     </tr>
+    <tr>
+      <td><strong><a href="workspace/examples/lumerical/gui/stripWaveguide_directionalCoupler_fdtd/"> Light propagation through directional coupler </a></strong></td>
+      <td> Lumerical FDTD (GUI) </td>
+      <td> FDTD analysis of directional coupler </td>
+    </tr>
   </tbody>
 </table>
 
