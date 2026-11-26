@@ -272,5 +272,15 @@ user@host:/workspace# just jupyter-stop
       <td> ✅ </td>
       <td><a href="/secrets/papers/DesignAndCharacterizationOfIntegratedComponentsForSiNPhotonicQuantumCircuits.pdf"> ✅ </a></td>
     </tr>
+    <tr id="10.1109/JLT.2024.3458459">
+      <td> Optical computing </td>
+      <td> - </td>
+      <td><strong> An All-Optical General-Purpose CPU and Optical Computer Architecture </strong></td>
+      <td> 10.1109/JLT.2024.3458459 </td>
+      <td> 15.10.2024 </td>
+      <td><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10675424"> ✅ </a></td>
+      <td> ✅ </td>
+      <td><a href="/secrets/papers/AnAllOpticalGeneralPurposeCPUAndOpticalComputerArchitecture.pdf"> ✅ </a></td>
+    </tr>
   </tbody>
 </table>
